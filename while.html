@@ -157,15 +157,15 @@
     <div style="background-color: #18191A;">
         <div style="padding-top: 80px; display: flex; flex-direction: row; justify-content: center; align-items: center;">
             
-            <img src="img/yalelo.jpg" style="border-radius: 100px; width: 200px;">
+            <img src="img/pando.png" style="border-radius: 100px; width: 200px;">
             
             <p style="margin: 0px; font-weight: bolder; padding-left: 5%; font-size: xxx-large; color: lightgrey  ; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                Estructuras de control: Ciclo For
+                Estructuras d control: ciclo While<br>y do While
             </p>  
         </div>
         <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
             <p style="margin: 0px; font-size: x-large; color: rgb(113, 113, 113)  ; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                Autor: Yael Monterrubio
+                Autor: Diego Díaz
             </p>
             <p style="margin: 0px; padding-left: 5%; font-size: x-large; color: rgb(237, 255, 120)  ; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                 ★★★★★
@@ -177,13 +177,11 @@
     
         <div style="display: flex; flex-direction: row; padding-left: 5%;  padding-right: 5%; padding-bottom: 2%;">
             <p style=" color: #a4a4a4; margin-left: 10%; margin-right: 10%; margin-top: 5%; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-size: x-large;">
-                Dentro de la programación, las estructuras de control desempeñan un papel crucial para gestionar el flujo de ejecución en un programa. Una de las herramientas más poderosas para la iteración controlada es el ciclo "for". Este bucle proporciona una forma compacta y eficiente de repetir un bloque de código un número específico de veces.
-                <br><br>
-                <span style="font-weight: bolder;">Ciclo For: Repetición Controlada y Eficiente</span>
-                <br><br>
-                
-                El ciclo "for" se compone de tres partes fundamentales: la inicialización, la condición de continuación y la expresión de actualización. Estas partes trabajan en conjunto para controlar la ejecución del bucle de manera precisa y estructurada.    
-            </p>    
+                <span style="font-weight: bolder;">Ciclo While/ do While</span><br><br>
+El ciclo while y do while son estructuras de control de flujo en programación que permiten repetir un bloque de código mientras se cumpla una condición específica. Ambos son bucles, pero difieren en cómo evalúan la condición.
+
+En el ciclo while se evalúa la condición antes de ejecutar el bloque de código. Si la condición es verdadera, el bloque de código se ejecuta; de lo contrario, el programa sale del bucle.
+</p>    
 
         </div>
 
@@ -191,8 +189,10 @@
             <textarea id="code" name="code">
     public class Main {
         public static void main(String[] args) {
-            for (int i = 0; i < 5; i++) {
-                System.out.println("Iteración: " + i);
+            int contador = 0;
+            while (contador < 5) {
+                System.out.println(contador);
+                contador++;
             }
         }
     }
@@ -201,36 +201,40 @@
 
         <div style="display: flex; flex-direction: row; padding-left: 5%;  padding-right: 5%; padding-bottom: 2%;">
             <p style=" color: #a4a4a4; margin-left: 10%; margin-right: 10%; margin-top: 5%; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-size: x-large;">
-                <span style="font-weight: bolder;">Ciclo For: Repetición Controlada y Eficiente</span>
-                <br><br>
-                
-                En este ejemplo, el ciclo "for" se inicia con la variable i inicializada en 0. La condición i < 5 determina cuántas veces se ejecutará el bucle, y i++ se encarga de incrementar el valor de i en cada iteración. El bloque de código dentro del bucle se ejecuta cinco veces, imprimiendo "Iteración: 0" hasta "Iteración: 4".
-
-                <span style="font-weight: bolder;">Controlando Iteraciones con Precisión</span>
-                
-                El ciclo "for" brinda un control preciso sobre el número de iteraciones, lo que lo convierte en una herramienta esencial para diversas tareas, como recorrer arreglos, realizar cálculos repetitivos o ejecutar acciones en secuencia.</p>    
+                En este bucle se imprimirán los números del 0 al 4
+                <br>
+                <br>
+                En el ciclo do while también repite un bloque de código mientras se cumple una condición, pero a diferencia del while estándar, el do-while ejecuta el bloque de código al menos una vez antes de evaluar la condición.
+                    </p>    
 
         </div>
 
         <div style="padding-bottom: 1%; display: flex; flex-direction: column; align-items: center; justify-content: baseline;">
             <textarea id="code2" name="code">
-    public class Main {
-        public static void main(String[] args) {
-            for (int j = 10; j > 0; j--) {
-                System.out.println("Contador descendente: " + j);
+public class Main {
+    public static void main(String[] args) {
+        int contador = 0;
+        while (true) {
+            System.out.println(contador);
+            contador++;
+            if (contador >= 5) {
+                break;
             }
         }
     }
+}
             </textarea>
         </div>
 
         <div style="display: flex; flex-direction: row; padding-left: 5%;  padding-right: 5%; padding-bottom: 10%;">
             <p style=" color: #a4a4a4; margin-left: 10%; margin-right: 10%; margin-top: 5%; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-size: x-large;">
-                En este caso, el ciclo "for" cuenta en orden descendente desde 10 hasta 1, proporcionando un mecanismo eficiente para realizar operaciones en dirección inversa.
-<br><br>
-En resumen, el ciclo "for" es una herramienta fundamental en la caja de herramientas de cualquier programador. Su capacidad para gestionar la repetición controlada de bloques de código facilita la implementación de algoritmos eficientes y estructurados. Al comprender y aprovechar esta estructura de control, los programadores pueden optimizar el rendimiento y la claridad de sus programas. ¡Explora las posibilidades del ciclo "for" y lleva tus habilidades de programación al siguiente nivel!
-            </p>
+                Este bucle también imprimirán los números del 0 al 4
+                <br><br>
+                En resumen, el ciclo while evalúa la condición antes de entrar al bucle, mientras que el do-while evalúa la condición después de ejecutar el bloque de código al menos una vez. La elección entre ellos depende de los requisitos específicos de tu programa. 
+                </p>    
+
         </div>
+
     
     </div>
     
@@ -256,7 +260,7 @@ En resumen, el ciclo "for" es una herramienta fundamental en la caja de herramie
 
             "println": "blanco",
             "out": "rosa",
-            "for": "rosa",
+            "if": "rosa",
             
             "// Se debe agregar 'L' al final para indicar que es de tipo long": "gris",
             "// Se debe agregar 'f' al final para indicar que es de tipo float": "gris",
