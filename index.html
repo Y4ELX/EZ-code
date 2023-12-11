@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Incluir CodeMirror -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/javascript/javascript.js"></script>
+
+
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>EZ Code</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='icon' type="image/x-icon" href='img/logooo.png'>
+    <script src='main.js'></script>
+</head>
+<style>
+    /*SCROLLBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARRR*/
+        /* Estilos para navegadores basados en WebKit (Chrome, Safari) */
+    ::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra deslizante */
+    }
+
+    ::-webkit-scrollbar-thumb {
+    background-color: #151515; /* Color del pulgar (la parte móvil de la barra) */
+    border-radius: 6px; /* Borde redondeado del pulgar */
+    }
+
+    ::-webkit-scrollbar-track {
+    background-color: #282C35; /* Color de la pista (la parte fija de la barra) */
+    }
+
+    /* Estilos para Firefox */
+    /* Nota: Firefox utiliza una sola propiedad para estilizar la barra deslizante */
+    /* Establece el color del fondo de la barra deslizante en Firefox */
+    /* Estos estilos también afectarán a la barra deslizante en Edge e IE */
+    * {
+    scrollbar-color: #888 #f1f1f1;
+    scrollbar-width: thin;
+    }
+
+    /*TERMINAAAAAAAAAAAAA SCROLLBAAAAAAAAAAAAAAAAAAAAAARRR*/
+
+    .boton:hover{
+        background-color: #455ec1;
+        box-shadow: 0px 0px 10px 2px #455ec1;
+        transition: all 0.2s ease-in;
+    }
+    .boton {
+        padding-left: 1%; padding-right: 1%;
+        cursor: pointer; color: white; font-size: medium; width: 130px; background-color: #455ec1; border-radius: 100px; border-color: transparent; height: 45px;
+        /* Establece una transición más lenta para el estado normal */
+        transition: box-shadow 0.5s ease-out;
+    }
+    .cursosl{
+        cursor: pointer; border-radius: 10px; margin: 0px; padding: 0px; flex-direction: column; justify-content: center; 
+        display: flex; width: 40%; background-color: transparent; margin-right: 5%; height: 400px;
+
+        transition: transform 0.3s ease-in;
+
+    }
+    .cursosl:hover{
+        transform: scale(1.03);
+        border-color: transparent;
+    }
+
+    .cursosr{
+        cursor: pointer; border-radius: 10px; margin: 0px; padding: 0px; flex-direction: column; justify-content: center; 
+        display: flex; width: 40%; background-color: transparent; margin-left: 5%; height: 400px;
+
+        transition: transform 0.3s ease-in;
+
+    }
+    .cursosr:hover{
+        transform: scale(1.03);
+    }
+    .curprof{
+        position: absolute;
+        transform: translate(50%, -40px);
+        background-color: black;
+        width: 12dvh;
+        height: 12dvh;
+    }
+    .buscar:focus{
+        outline: none;
+    }
+
+</style>
+<body style=" margin: 0px; background-color: transparent;">
+    <div style=" align-items: center; padding-top: 10px; padding-bottom: 10px; background-color: #151515; display: flex; 
+    flex-direction: row; justify-content: center; font-size: 5dvh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <a href="test.html" style="margin-right: 20%; margin-left: 2%">
+            <img src="img/logooo.png" style="height: 60px;">
+        </a>
+        <input class="buscar" type="text" style="color: azure; border-top-left-radius: 100px; border-bottom-left-radius: 100px; width: 50%; background-color: #212121; border-color: transparent; padding-left: 20px; font-size: medium; height: 45px; font-weight: 400;" placeholder="Buscar">
+        <button type="text" style="background-image: url(img/loupe.png); background-position: center; background-size: contain; background-repeat: no-repeat; cursor: pointer; color: azure; border-top-right-radius: 100px; border-bottom-right-radius: 100px; width: 6%; background-color: #212121; border-color: transparent; padding-left: 20px; font-size: medium; height: 51px;" placeholder="Buscar">
+        <a href="cod.html" style="margin-left: 20%; margin-right: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <button class="boton">Inicia sesión</button>
+        </a>
+    </div>
+
+    <div style="position: relative; height: 70vh; overflow: hidden;">
+        <video autoplay muted style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+            <source src="img/viddd.mp4" type="video/mp4">
+            Tu navegador no soporta el tag de video.
+        </video>
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background-attachment: fixed; background-size: cover;">
+            <p id="text" style="border-color: transparent; text-align: center; font-family: monospace; color: #bebebe; margin: 0px; font-size: 15vh;">
+                Aprende a programar <br>en EZ code!
+            </p>
+        </div>
+    </div>
+    
+    
+
+    <!--DIV PRINCIPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALLLLLL-->
+    <div style="      background: linear-gradient(to top, #18191A, #0C0C0C 100%);">
+        <div>
+            <p style="margin: 0px; font-weight: bolder; padding-left: 5%; padding-top: 3%; padding-bottom: 2%; font-size: xxx-large; color: lightgrey  ; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                Cursos
+            </p>
+            <!--<p style="padding-left: 5%; padding-bottom: 5%; font-size: x-large; color: lightgrey  ; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                ¡Bienvenidos al sitio web colaborativo donde nuestro equipo de apasionados por la programación se une para ofrecerte un tutorial completo de sintaxis de Java! En este espacio, cada uno de nosotros aportará conocimientos valiosos sobre diferentes aspectos del lenguaje de programación Java, desde variables hasta estructuras de control y funciones avanzadas.
+            </p>-->    
+        </div>
+    
+        <div style="display: flex; flex-direction: row; justify-content: center; padding-left: 5%;  padding-right: 5%; padding-bottom: 7%;">
+                
+            <div onclick="window.location.href='variables.html'" class="cursosl">
+                
+                
+                <div style=" background-image: url(img/td.png); background-size: cover; height: 40%; border-start-start-radius: 20px; border-start-end-radius: 20px;">
+    
+                </div>
+
+                <div class="curprof" style="background-image: url(img/arturo.png); background-size: cover; border-radius: 100px;">
+                </div>
+
+                <div style="background-color: #242526; height: 60%; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <p style=" color: #E4E6EB; margin-left: 5%; margin-top: 10%; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: x-large;">
+                        Tipos de variables: int, float, double, long, bool, char y String
+                    </p>
+                    <p style="font-weight: 400; color: #939393; margin-left: 5%; margin-right: 5%; margin-top: 5%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 2.5dvh;">
+                        En este curso, adquirirás conocimientos sobre los diversos tipos de variables, declaración y lectura de variables, comprendiendo se utilizan en diferentes contextos.
+                    </p>
+                </div>
+    
+                
+            </div>
+
+            <div onclick="window.location.href='operadores.html'" class="cursosr">
+                
+                
+                <div style=" background-image: url(img/arit.png); background-size: cover; height: 40%; border-start-start-radius: 20px; border-start-end-radius: 20px;">
+    
+                </div>
+
+                <div class="curprof" style="background-image: url(img/yeims.png); background-size: cover; border-radius: 100px;">
+                </div>
+
+                
+
+                <div style="background-color: #242526; height: 60%; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <p style=" color: #E4E6EB; margin-left: 5%; margin-top: 10%; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: x-large;">
+                        Tipos de operadores y operaciones aritméticas y de comparación
+                    </p>
+                    <p style="font-weight: 400; color: #939393; margin-left: 5%; margin-right: 5%; margin-top: 5%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 2.5dvh;">
+                        Sumérgete en el aprendizaje de los diversos tipos de operadores y sus funciones, así como en la comprensión de la sintaxis de operaciones aritméticas y de comparación.
+                    </p>
+                </div>
+    
+                
+            </div>
+    
+        </div>
+
+
+        <!--SEGUNDO RENGLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONNNNNNN-->
+    
+        <div style="display: flex; flex-direction: row; justify-content: center; padding-left: 5%;  padding-right: 5%; padding-bottom: 7%;">
+                
+            <div onclick="window.location.href='ifelseswitch.html'" class="cursosl">
+                
+                
+                <div style=" background-image: url(img/ifelse.png); background-size: cover; height: 40%; border-start-start-radius: 20px; border-start-end-radius: 20px;">
+    
+                </div>
+
+                <div class="curprof" style="background-image: url(img/grus.png); background-size: cover; border-radius: 100px;">
+                </div>
+
+                <div style="background-color: #242526; height: 60%; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <p style=" color: #E4E6EB; margin-left: 5%; margin-top: 10%; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: x-large;">
+                        Estructuras de control: If, If else <br> y Switch
+                    </p>
+                    <p style="font-weight: 400; color: #939393; margin-left: 5%; margin-right: 5%; margin-top: 5%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 2.5dvh;">
+                        Aprenderás a tomar decisiones condicionales y dirigir el flujo del programa de manera efectiva. Con ejemplos, dominarás estas herramientas para escribir código más eficiente y lógico.
+                    </p>
+                </div>
+    
+                
+            </div>
+
+            <div onclick="window.location.href='for.html'" class="cursosr">
+                
+                
+                <div style=" background-image: url(img/for.png); background-size: cover; height: 40%; border-start-start-radius: 20px; border-start-end-radius: 20px;">
+    
+                </div>
+
+                <div class="curprof" style="background-image: url(img/yalelo.jpg); background-size: cover; border-radius: 100px;">
+                </div>
+
+                
+
+                <div style="background-color: #242526; height: 60%; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <p style=" color: #E4E6EB; margin-left: 5%; margin-top: 10%; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: x-large;">
+                        Estructuras de control: <br>Ciclo For
+                    </p>
+                    <p style="font-weight: 400; color: #939393; margin-left: 5%; margin-right: 5%; margin-top: 5%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 2.5dvh;">
+                        Explorarás la potencia del ciclo for en las estructuras de control. Aprenderás a iterar de manera eficiente sobre secuencias de datos y realizar tareas repetitivas.
+                    </p>
+                </div>
+    
+                
+            </div>
+    
+        </div>
+
+        <!--TERCER RENGLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONNN-->
+
+        <div style="display: flex; flex-direction: row; justify-content: center; padding-left: 5%;  padding-right: 5%; padding-bottom: 7%;">
+                
+            <div onclick="window.location.href='while.html'" class="cursosl">
+                
+                
+                <div style=" background-image: url(img/while.png); background-size: cover; height: 40%; border-start-start-radius: 20px; border-start-end-radius: 20px;">
+    
+                </div>
+
+                <div class="curprof" style="background-image: url(img/pando.png); background-size: cover; border-radius: 100px;">
+                </div>
+
+                <div style="background-color: #242526; height: 60%; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <p style=" color: #E4E6EB; margin-left: 5%; margin-top: 10%; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: x-large;">
+                        Estructuras d control: ciclo While <br>y do While
+                    </p>
+                    <p style="font-weight: 400; color: #939393; margin-left: 5%; margin-right: 5%; margin-top: 5%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 2.5dvh;">
+                        En este apartado, descubrirás la versatilidad de las estructuras de control de ciclo y a ejecutar bloques de código de manera repetitiva.
+                    </p>
+                </div>
+    
+                
+            </div>
+
+            <div onclick="window.location.href='string.html'"  class="cursosr">
+                
+                
+                <div style=" background-image: url(img/string.png); background-size: cover; height: 40%; border-start-start-radius: 20px; border-start-end-radius: 20px;">
+    
+                </div>
+
+                <div class="curprof" style="background-image: url(img/angelito.jpg); background-size: cover; border-radius: 100px;">
+                </div>
+
+                
+
+                <div style="background-color: #242526; height: 60%; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <p style=" color: #E4E6EB; margin-left: 5%; margin-top: 10%; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: x-large;">
+                        Tipo de dato String, funciones <br>y ejemplos
+                    </p>
+                    <p style="font-weight: 400; color: #939393; margin-left: 5%; margin-right: 5%; margin-top: 5%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 2.5dvh;">
+                        En esta unidad, aprenderemos el tipo de dato String, su manipulación y uso en programación. además trabajaremos con funciones específicas para cadenas de texto.
+                    </p>
+                </div>
+    
+                
+            </div>
+    
+        </div>
+    </div>
+    
+</body>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const textElement = document.getElementById('text');
+        const textContent = "Aprende a programar en<p>";
+        let index = 0;
+
+        function writeText() {
+            textElement.innerHTML = textContent.slice(0, index);
+            index++;
+
+            if (index <= textContent.length) {
+                setTimeout(writeText, 170); // Velocidad de escritura (ajustar según sea necesario)
+            }
+        }
+
+        writeText();
+    });
+</script>
+
+
+
+</html>
