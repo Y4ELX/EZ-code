@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Incluir CodeMirror -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/azulscript/azulscript.js"></script>
+
+
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>EZ Code</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='icon' type="image/x-icon" href='img/logooo.png'>
+    <script src='main.js'></script>
+</head>
+<style>
+    /*CODIGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASCROLLLLLLLLVAARRR*/
+    .CodeMirror {
+        width: 70%;
+    background-color: #18191A;
+    border-radius: 20px;
+    }
+  .CodeMirror-scroll{
+    font-size: large;
+    background-color: #1F1F1F;
+    color: #BBBDC3;
+    height: 80%;
+    border: solid;
+      border-color: #1F1F1F;
+      border-width: 10px; 
+      overflow: scroll;
+  }
+  .CodeMirror-gutter {
+    background-color: #1F1F1F;
+
+  }
+
+
+
+  .CodeMirror-scroll::-webkit-scrollbar {
+      width: 10px;
+  }
+
+  .CodeMirror-scroll::-webkit-scrollbar-thumb {
+      background-color: #1F1F1F; /* Color del thumb (scrollbar deslizante) */
+      border-radius: 5px;
+  }
+
+  .CodeMirror-scroll::-webkit-scrollbar-track {
+      background-color: 1F1F1F; /* Color del track (área detrás del thumb) */
+  }
+
+
+
+    /*SCROLLBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARRR*/
+        /* Estilos para navegadores basados en WebKit (Chrome, Safari) */
+    ::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra deslizante */
+    }
+
+    ::-webkit-scrollbar-thumb {
+    background-color: #151515; /* Color del pulgar (la parte móvil de la barra) */
+    border-radius: 6px; /* Borde redondeado del pulgar */
+    }
+
+    ::-webkit-scrollbar-track {
+    background-color: #1F1F1F; /* Color de la pista (la parte fija de la barra) */
+    }
+
+    /* Estilos para Firefox */
+    /* Nota: Firefox utiliza una sola propiedad para estilizar la barra deslizante */
+    /* Establece el color del fondo de la barra deslizante en Firefox */
+    /* Estos estilos también afectarán a la barra deslizante en Edge e IE */
+    * {
+    scrollbar-color: #888 #f1f1f1;
+    scrollbar-width: thin;
+    }
+
+    /*TERMINAAAAAAAAAAAAA SCROLLBAAAAAAAAAAAAAAAAAAAAAARRR*/
+
+    .boton:hover{
+        background-color: #455ec1;
+        box-shadow: 0px 0px 10px 2px #455ec1;
+        transition: all 0.2s ease-in;
+    }
+    .boton {
+        padding-left: 1%; padding-right: 1%;
+        cursor: pointer; color: white; font-size: medium; width: 130px; background-color: #455ec1; border-radius: 100px; border-color: transparent; height: 45px;
+        /* Establece una transición más lenta para el estado normal */
+        transition: box-shadow 0.5s ease-out;
+    }
+    .cursosl{
+        border-radius: 10px; margin: 0px; padding: 0px; flex-direction: column; justify-content: center; 
+        display: flex; width: 40%; background-color: transparent; margin-right: 5%; height: 400px;
+
+        transition: transform 0.3s ease-in;
+
+    }
+    .cursosl:hover{
+        transform: scale(1.03);
+        border-color: transparent;
+    }
+
+    .cursosr{
+        border-radius: 10px; margin: 0px; padding: 0px; flex-direction: column; justify-content: center; 
+        display: flex; width: 40%; background-color: transparent; margin-left: 5%; height: 400px;
+
+        transition: transform 0.3s ease-in;
+
+    }
+    .cursosr:hover{
+        transform: scale(1.03);
+    }
+    .curprof{
+        background-color: black;
+
+    }
+    .buscar:focus{
+        outline: none;
+    }
+    .azul{
+        color: #455ec1;
+    }
+    .naranja{
+        color: #9d6f40;
+    }
+    .verde{
+        color: #3f812f;
+    }
+    .blanco{
+        color: #BBBDC3;
+    }
+    .gris{
+        color: #515151;
+    }
+
+
+</style>
+<body style=" margin: 0px; background-color: #18191A;">
+    <div style=" align-items: center; padding-top: 10px; padding-bottom: 10px; background-color: #151515; display: flex; 
+    flex-direction: row; justify-content: center; font-size: 5dvh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <a href="index.html">
+            <img src="img/logooo.png" style="height: 60px;">
+        </a>
+    </div>   
+    
+
+    <!--DIV PRINCIPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALLLLLL-->
+    <div style="background-color: #18191A;">
+        <div style="padding-top: 80px; display: flex; flex-direction: row; justify-content: center; align-items: center;">
+            
+           
+            <p style="margin: 0px; font-weight: bolder; font-size: xxx-large; color: lightgrey  ; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                ¿Quiénes somos?
+            </p>  
+        </div>
+            
+        <div style="display: flex; flex-direction: row; padding-left: 5%;  padding-right: 5%; padding-bottom: 2%;">
+            <p style=" color: #a4a4a4; margin-left: 10%; margin-right: 10%; margin-top: 5%; font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-size: x-large;">
+                En el apasionante mundo de la programación, nace una iniciativa única que busca transformar el aprendizaje en una experiencia excepcional. EZcode es más que una plataforma de cursos de programación; es un lugar donde la creatividad y la innovación se encuentran.
+                <br><br>
+                Conformado por un equipo de mentes brillantes y apasionadas, EZcode surge gracias a la visión compartida de seis talentosos individuos: Yael Monterrubio, Jaime Santamaría, Gustavo Villarreal, Arturo Vazquez, Diego Diaz y Angel Hernandez. Juntos, fusionan su experiencia y conocimientos para ofrecerte un viaje inigualable en el universo de la codificación.
+                <br><br>
+                <span style="font-weight: bold;">¿Qué nos hace especiales?</span>
+                <br><br>
+                Diversidad de Expertise: Cada miembro de nuestro equipo aporta una perspectiva única y habilidades especializadas. Desde el diseño hasta el desarrollo de software, EZcode cubre todas las bases para que encuentres el curso perfecto para ti.
+                <br><br>
+                Metodología Innovadora: Nosotros entendemos que aprender a programar puede ser desafiante, pero también creemos que puede ser increíblemente divertido. Nuestros cursos están diseñados con una metodología interactiva y práctica, para que puedas aplicar lo que aprendes de inmediato.
+                <br><br>
+                Comunidad EZcode: Al unirte a EZcode, no solo accedes a cursos excepcionales, sino que también te conviertes en parte de una comunidad vibrante. Conéctate con otros estudiantes, comparte tus proyectos y encuentra inspiración en cada paso de tu viaje de aprendizaje.
+                <br><br>
+                <span style="font-weight: bold;">Nuestros Instructores, Tus Guías</span>
+                <br><br>
+                Con un equipo compuesto por expertos reconocidos en la industria, nuestros instructores no solo son maestros de la codificación, sino también apasionados por compartir su conocimiento contigo. Prepárate para aprender de los mejores mientras te sumerges en proyectos emocionantes y desafiantes.
+                <br><br>
+                <span style="font-weight: bold;">¿Qué Esperas? Únete a EZcode y Desata Tu Potencial en la Programación</span>
+                <br><br>
+                EZcode es más que una plataforma de cursos; es un punto de encuentro para los amantes de la tecnología, la creatividad y el aprendizaje continuo. Descubre lo que puedes lograr y da el siguiente paso en tu carrera de programación con EZcode. ¡Bienvenido a la revolución del código!
+                </p>    
+
+        </div>
+
+        <div style="background-color: #18191A;">
+
+            <!--U8NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO-->
+        
+            <div style="display: flex; flex-direction: row; justify-content: center; padding-top: 1% ;padding-left: 10%;  padding-right: 10%; padding-bottom: 3%;">
+                    
+                <div class="cursosl">
+                        
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #242526; height: 100%; border-radius: 20px; border-bottom-right-radius: 20px;">
+                        <img src="img/yalelo.jpg" style=" border-radius: 500px; width: 150px;">
+
+                        <p style=" color: #E4E6EB; margin-top: 6%; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: x-large;">
+                            Yael Monterrubio
+                        </p>
+                    
+                        <p style="font-weight: 400; color: #939393; margin-left: 10%; margin-right: 10%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large;">
+                            185326
+                        </p>
+                    </div>                    
+                </div>
+    
+                <div class="cursosr">
+                    
+                    
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #242526; height: 100%; border-radius: 20px; border-bottom-right-radius: 20px;">
+                        <img src="img/arturo.png" style=" border-radius: 500px; width: 150px;">
+
+                        <p style=" color: #E4E6EB; margin-top: 6%; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: x-large;">
+                            Arturo Vázquez
+                        </p>
+                    
+                        <p style="font-weight: 400; color: #939393; margin-left: 10%; margin-right: 10%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large;">
+                            186089
+                        </p>
+                    </div> 
+        
+                    
+                </div>
+        
+            </div>
+    
+    
+            <!--SEGUNDO RENGLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONNNNNNN-->
+        
+            <div style="display: flex; flex-direction: row; justify-content: center; padding-top: 1% ;padding-left: 10%;  padding-right: 10%; padding-bottom: 3%;">
+                    
+                <div class="cursosl">
+                    
+                    
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #242526; height: 100%; border-radius: 20px; border-bottom-right-radius: 20px;">
+                        <img src="img/yeims.png" style=" border-radius: 500px; width: 150px;">
+
+                        <p style=" color: #E4E6EB; margin-top: 6%; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: x-large;">
+                            Jaime Santamaría
+                        </p>
+                    
+                        <p style="font-weight: 400; color: #939393; margin-left: 10%; margin-right: 10%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large;">
+                            185369
+                        </p>
+                    </div>  
+        
+                    
+                </div>
+    
+                <div class="cursosr">
+                    
+                    
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #242526; height: 100%; border-radius: 20px; border-bottom-right-radius: 20px;">
+                        <img src="img/grus.png" style=" border-radius: 500px; width: 150px;">
+
+                        <p style=" color: #E4E6EB; margin-top: 6%; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: x-large;">
+                            Gustavo Villarreal
+                        </p>
+                    
+                        <p style="font-weight: 400; color: #939393; margin-left: 10%; margin-right: 10%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large;">
+                            185420
+                        </p>
+                    </div>  
+        
+                    
+                </div>
+        
+            </div>
+    
+            <!--TERCER RENGLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONNN-->
+    
+            <div style="display: flex; flex-direction: row; justify-content: center; padding-top: 1% ;padding-left: 10%;  padding-right: 10%; padding-bottom: 7%;">
+                    
+                <div class="cursosl">
+                    
+                    
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #242526; height: 100%; border-radius: 20px; border-bottom-right-radius: 20px;">
+                        <img src="img/pando.png" style=" border-radius: 500px; width: 150px;">
+
+                        <p style=" color: #E4E6EB; margin-top: 6%; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: x-large;">
+                            Diego Díaz
+                        </p>
+                    
+                        <p style="font-weight: 400; color: #939393; margin-left: 10%; margin-right: 10%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large;">
+                            185589
+                        </p>
+                    </div>  
+        
+                    
+                </div>
+    
+                <div  class="cursosr">
+                    
+                    
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #242526; height: 100%; border-radius: 20px; border-bottom-right-radius: 20px;">
+                        <img src="img/angelito.jpg" style=" border-radius: 500px; width: 150px;">
+
+                        <p style=" color: #E4E6EB; margin-top: 6%; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: x-large;">
+                            Angel Hernández
+                        </p>
+                    
+                        <p style="font-weight: 400; color: #939393; margin-left: 10%; margin-right: 10%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: large;">
+                            185538
+                        </p>
+                    </div>  
+        
+                    
+                </div>
+        
+            </div>
+        </div>
+    
+    </div>
+    
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const codeEditor = CodeMirror.fromTextArea(document.getElementById('code'), {
+            mode: 'text/x-azul',
+            lineNumbers: true,
+        });
+
+        // Definir palabras y sus colores asociados
+        const palabrasResaltadas = {
+            "public class": "naranja",
+            "public static void": "naranja",
+            "main": "azul",
+
+            
+            "// Se debe agregar 'L' al final para indicar que es de tipo long": "gris",
+            "// Se debe agregar 'f' al final para indicar que es de tipo float": "gris",
+            "true": "naranja",
+            "int": "azul",
+            "float": "azul",
+            "boolean": "azul",
+            "long": "azul",
+            "char": "azul",
+            "String[]": "blanco",
+            "String": "azul",
+            "double": "azul",
+            "\"Hola, mundo!\"": "verde",
+            "'A'": "verde",
+            // Puedes agregar más palabras y colores según tus necesidades
+        };
+
+        // Encuentra todas las ocurrencias de las palabras y resáltalas
+        codeEditor.getDoc().eachLine(function (line) {
+            for (const [palabra, color] of Object.entries(palabrasResaltadas)) {
+                const startIndex = line.text.indexOf(palabra);
+                if (startIndex !== -1) {
+                    const endIndex = startIndex + palabra.length;
+                    codeEditor.getDoc().markText(
+                        { line: line.lineNo(), ch: startIndex },
+                        { line: line.lineNo(), ch: endIndex },
+                        { className: color }
+                    );
+                }
+            }
+        });
+    });
+</script>
+</html>
